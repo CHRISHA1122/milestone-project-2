@@ -41,3 +41,8 @@ body {
 #home h1 {
     color: black;
 }
+
+#game {
+    margin-left: 2.5rem;
+    margin-top: 1rem;
+}
