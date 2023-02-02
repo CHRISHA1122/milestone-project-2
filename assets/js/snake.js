@@ -39,7 +39,7 @@ function create() {
         function rabbit (scene, x, y) {
             Phaser.GameObjects.Image.call(this, scene)
             this.setTexture('rabbit');
-            this.setScale(1.4);
+            this.setScale(1.3);
             this.setPosition(x * 16, y * 16);
             this.setOrigin(0);
 
@@ -48,7 +48,25 @@ function create() {
         },
     });
 
+
+    var Snake = new Phaser.Class({
+
+        initialize:
+
+        function Snake (scene, x, y) {
+            this.headPosition = new Phaser.Geom.Point(x, y);
+            this.body = scene.add.group();
+
+            this.head = this.body.create(x * 16, y * 16, 'snake');
+            this.head.setOrigin(0);
+
+            this.alive = true;
+        },
+    })
+
     rabbit = new rabbit(this, 16, 28);
+
+    snake = new Snake(this, 8, 8);
 }
 
 function update() {
