@@ -33,7 +33,7 @@ body {
     background-size: cover;
     height: auto;
     width: 100%;
-    font-family: Arcade;
+    font-family: Arcadepix;
     text-align: center;
     font-size: 6rem;
 }
@@ -44,11 +44,17 @@ body {
 }
 
 #start {
-    font-family: Arcade;
+    font-family: Arcadepix;
     text-align: center;
     font-size: 4rem;
+    border-radius: 5%;
     color: black;
     background-color: #9AB21E;
+}
+
+#start:hover {
+    background-color: black;
+    color: #9AB21E;
 }
 
 
