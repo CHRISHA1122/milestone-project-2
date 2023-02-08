@@ -105,9 +105,9 @@ function create() {
 
         move: function(time) {
             switch(this.heading) {
-                case UP: this.headPosition.y =Phaser.Math.Wrap(this.headPosition.y - 1, 0, 50);
+                case UP: this.headPosition.y =Phaser.Math.Wrap(this.headPosition.y - 1, 0, 38);
                 break;
-                case DOWN: this.headPosition.y =Phaser.Math.Wrap(this.headPosition.y + 1, 0, 50);
+                case DOWN: this.headPosition.y =Phaser.Math.Wrap(this.headPosition.y + 1, 0, 38);
                 break;
                 case LEFT: this.headPosition.x =Phaser.Math.Wrap(this.headPosition.x - 1, 0, 80);
                 break;
