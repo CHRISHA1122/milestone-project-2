@@ -15,9 +15,9 @@ var config = {
 };
 
 // Global variables
-var snake;
+var player;
 var food;
-var cursors;
+var direction;
 var UP = 0;
 var DOWN = 1;
 var LEFT = 2;
@@ -29,7 +29,7 @@ function preload() {
 
     this.load.image('bg', 'assets/images/grass_template2.jpg');
     this.load.image('snake', 'assets/images/body.png');
-    this.load.image('rabbit', 'assets/images/Snake-14.png');
+    this.load.image('food', 'assets/images/food.png');
 }
 
 function create() {
@@ -39,15 +39,14 @@ function create() {
 
     
 // Adds food to game
-    var rabbit = new Phaser.Class({
+    var Food = new Phaser.Class({
 
         Extends: Phaser.GameObjects.Image,
         initialize:
 
         function rabbit (scene, x, y) {
             Phaser.GameObjects.Image.call(this, scene)
-            this.setTexture('rabbit');
-            this.setScale(1.3);
+            this.setTexture('food');
             this.setPosition(x * 16, y * 16);
             this.setOrigin(0);
 
@@ -58,7 +57,7 @@ function create() {
 
 
 // Adds snake to game
-    var Snake = new Phaser.Class({
+    var Player = new Phaser.Class({
 
         initialize:
 
@@ -122,31 +121,31 @@ function create() {
         }
     });
 
-    rabbit = new rabbit(this, 16, 28);
+    food = new Food(this, 16, 28);
 
-    snake = new Snake(this, 8, 8);
+    player = new Player(this, 8, 8);
 
 //  Create keyboard controls
-        cursors = this.input.keyboard.createCursorKeys();
+        direction = this.input.keyboard.createCursorKeys();
 }
 
 function update(time, delta) {
     
-    if (!snake.alive) {
+    if (!player.alive) {
         return
     }
-    if (cursors.up.isDown) {
-        snake.faceUp();
+    if (direction.up.isDown) {
+        player.faceUp();
     }
-    else if (cursors.down.isDown) {
-        snake.faceDown();
+    else if (direction.down.isDown) {
+        player.faceDown();
     }
-    else if (cursors.left.isDown) {
-        snake.faceLeft();
+    else if (direction.left.isDown) {
+        player.faceLeft();
     }
-    else if (cursors.right.isDown) {
-        snake.faceRight();
+    else if (direction.right.isDown) {
+        player.faceRight();
     }
 
-    snake.update(time);
+    player.update(time);
 }
