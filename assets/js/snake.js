@@ -53,7 +53,7 @@ function create() {
         consume: function() {
             this.total ++;
             var x = Phaser.Math.Between(0, 78);
-            var y = Phaser.Math.Between(0, 37);
+            var y = Phaser.Math.Between(0, 36);
             this.setPosition(x * 16, y * 16);
         },
     });
@@ -74,8 +74,8 @@ function create() {
             this.alive = true;
             this.moveTime = 0;
             this.speed = 100;
-            this.heading = RIGHT;
-            this.direction = RIGHT;
+            this.heading = DOWN;
+            this.direction = DOWN;
             this.newBody = new Phaser.Geom.Point(x, y);
         },
 
@@ -119,20 +119,26 @@ function create() {
             }
 
             this.direction = this.heading;
-            Phaser.Actions.ShiftPosition(this.body.getChildren(), this.headPosition.x * 16, this.headPosition.y * 16, 1);
+            Phaser.Actions.ShiftPosition(this.body.getChildren(), this.headPosition.x * 16, this.headPosition.y * 16, 1, this.newBody);
             this.moveTime = time + this.speed;
             return true;
         },
 
         consumeFood: function(food) {
             if (this.head.x === food.x && this.head.y === food.y) {
+                this.addBody();
                 food.consume();
                 return true;
             }
             else {
                 return false;
             }
-        }
+        },
+
+        addBody: function() {
+            var grow = this.body.create(this.newBody.x, this.newBody.y, 'snake');
+            grow.setOrigin(0);
+        },
     });
 
     food = new Food(this, 16, 28);
