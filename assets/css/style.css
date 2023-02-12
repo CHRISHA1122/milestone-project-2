@@ -27,10 +27,7 @@ body {
 }
 
 #home {
-    background: url("../images/grass_template2.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: #d3d3d3;
     height: auto;
     width: 100%;
     font-family: Arcadepix;
@@ -49,16 +46,16 @@ body {
     font-size: 4rem;
     border-radius: 5%;
     color: black;
-    background-color: #9AB21E;
+    background-color: #d3d3d3;
 }
 
 #start:hover {
     background-color: black;
-    color: #9AB21E;
+    color: #d3d3d3;
 }
 
 
 #game {
-    margin-left: 2.5rem;
-    margin-top: 1rem;
+    margin: 1rem 2.5rem 1rem 2.5rem;
+    border-style: solid;
 }

@@ -1,8 +1,9 @@
 // Phaser game configuration
 var config = {
     type: Phaser.AUTO,
+    height: 600,
     width: 1280,
-    height : 600,
+    backgroundColor: '#d3d3d3',
     physics: {
         default: 'arcade',
     },
@@ -27,24 +28,19 @@ var game = new Phaser.Game(config);
 
 function preload() {
 
-    this.load.image('bg', 'assets/images/grass_template2.jpg');
     this.load.image('snake', 'assets/images/body.png');
     this.load.image('food', 'assets/images/food.png');
 }
 
 function create() {
-    
-// Adds background image
-    this.add.image(640, 300, 'bg');
 
-    
 // Adds food to game
     var Food = new Phaser.Class({
 
         Extends: Phaser.GameObjects.Image,
         initialize:
 
-        function rabbit (scene, x, y) {
+        function Food (scene, x, y) {
             Phaser.GameObjects.Image.call(this, scene)
             this.setTexture('food');
             this.setPosition(x * 16, y * 16);
@@ -52,6 +48,13 @@ function create() {
 
             this.total = 0;
             scene.children.add(this);
+        },
+
+        consume: function() {
+            this.total ++;
+            var x = Phaser.Math.Between(0, 78);
+            var y = Phaser.Math.Between(0, 37);
+            this.setPosition(x * 16, y * 16);
         },
     });
 
@@ -69,10 +72,11 @@ function create() {
             this.head.setOrigin(0);
 
             this.alive = true;
-            this.moveTime =0;
+            this.moveTime = 0;
             this.speed = 100;
             this.heading = RIGHT;
             this.direction = RIGHT;
+            this.newBody = new Phaser.Geom.Point(x, y);
         },
 
         update: function (time) {
@@ -104,13 +108,13 @@ function create() {
 
         move: function(time) {
             switch(this.heading) {
-                case UP: this.headPosition.y =Phaser.Math.Wrap(this.headPosition.y - 1, 0, 38);
+                case UP: this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y - 1, 0, 38);
                 break;
-                case DOWN: this.headPosition.y =Phaser.Math.Wrap(this.headPosition.y + 1, 0, 38);
+                case DOWN: this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y + 1, 0, 38);
                 break;
-                case LEFT: this.headPosition.x =Phaser.Math.Wrap(this.headPosition.x - 1, 0, 80);
+                case LEFT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x - 1, 0, 80);
                 break;
-                case RIGHT: this.headPosition.x =Phaser.Math.Wrap(this.headPosition.x + 1, 0, 80);
+                case RIGHT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x + 1, 0, 80);
                 break;
             }
 
@@ -118,6 +122,16 @@ function create() {
             Phaser.Actions.ShiftPosition(this.body.getChildren(), this.headPosition.x * 16, this.headPosition.y * 16, 1);
             this.moveTime = time + this.speed;
             return true;
+        },
+
+        consumeFood: function(food) {
+            if (this.head.x === food.x && this.head.y === food.y) {
+                food.consume();
+                return true;
+            }
+            else {
+                return false;
+            }
         }
     });
 
@@ -147,5 +161,7 @@ function update(time, delta) {
         player.faceRight();
     }
 
-    player.update(time);
+    if (player.update(time)) {
+        player.consumeFood(food);
+    };
 }
