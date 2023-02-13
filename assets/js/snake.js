@@ -120,8 +120,17 @@ function create() {
 
             this.direction = this.heading;
             Phaser.Actions.ShiftPosition(this.body.getChildren(), this.headPosition.x * 16, this.headPosition.y * 16, 1, this.newBody);
+            
+            var colideBody = Phaser.Actions.GetFirst(this.body.getChildren(), { x: this.head.x, y: this.head.y }, 1);
+            if (colideBody) {
+            console.log('dead');
+            this.alive = false;
+            return false;
+        }
+            
             this.moveTime = time + this.speed;
             return true;
+            
         },
 
         consumeFood: function(food) {
