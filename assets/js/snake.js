@@ -28,11 +28,29 @@ var game = new Phaser.Game(config);
 
 function preload() {
 
+// Adds images to game
     this.load.image('snake', 'assets/images/body.png');
     this.load.image('food', 'assets/images/food.png');
 }
 
 function create() {
+
+// Adds pause feature to game
+    var text = this.add.text(1000, 10, 'PAUSE');
+    var pause = false;
+
+    this.input.on('pointerdown', () => {
+        if(!pause) {
+            text.setText('PLAY');
+            setTimeout(_ => game.loop.sleep(), 50);
+            pause = true;
+        }
+        else {
+            text.setText('PAUSE');
+            game.loop.wake();
+            pause = false;
+        }
+    })
 
 // Adds food to game
     var Food = new Phaser.Class({
