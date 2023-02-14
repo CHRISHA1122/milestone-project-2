@@ -16,6 +16,7 @@ var config = {
 };
 
 // Global variables
+var score = 0;
 var player;
 var food;
 var direction;
@@ -34,6 +35,11 @@ function preload() {
 }
 
 function create() {
+
+// Adds score to game
+    var scoreText;
+    scoreText = this.add.text(100, 10, 'Score: 0')
+
 
 // Adds pause feature to game
     var text = this.add.text(1000, 10, 'PAUSE');
@@ -155,6 +161,8 @@ function create() {
             if (this.head.x === food.x && this.head.y === food.y) {
                 this.addBody();
                 food.consume();
+                score += 10;
+                scoreText.setText('Score: ' + score);
                 return true;
             }
             else {
