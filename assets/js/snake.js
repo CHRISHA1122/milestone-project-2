@@ -38,11 +38,17 @@ function create() {
 
 // Adds score to game
     var scoreText;
-    scoreText = this.add.text(100, 10, 'Score: 0')
-
-
+    scoreText = this.add.text(10, 0, 'SCORE: 0');
+    scoreText.setColor('black');
+    scoreText.setFontFamily('Arcadepix');
+    scoreText.setScale(1.8);
+    
 // Adds pause feature to game
-    var text = this.add.text(1000, 10, 'PAUSE');
+    var text = this.add.text(1200, 0, 'PAUSE');
+    text.setColor('black');
+    text.setFontFamily('Arcadepix');
+    text.setScale(1.8);
+
     var pause = false;
 
     this.input.on('pointerdown', () => {
@@ -69,6 +75,7 @@ function create() {
             this.setTexture('food');
             this.setPosition(x * 16, y * 16);
             this.setOrigin(0);
+            this.setScale(1.3);
 
             this.total = 0;
             scene.children.add(this);
@@ -94,6 +101,7 @@ function create() {
 
             this.head = this.body.create(x * 16, y * 16, 'snake');
             this.head.setOrigin(0);
+            this.head.setScale(1.2);
 
             this.alive = true;
             this.moveTime = 0;
@@ -162,7 +170,7 @@ function create() {
                 this.addBody();
                 food.consume();
                 score += 10;
-                scoreText.setText('Score: ' + score);
+                scoreText.setText('SCORE: ' + score);
                 return true;
             }
             else {
@@ -173,6 +181,7 @@ function create() {
         addBody: function() {
             var grow = this.body.create(this.newBody.x, this.newBody.y, 'snake');
             grow.setOrigin(0);
+            grow.setScale(1.2);
         },
     });
 
