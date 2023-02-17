@@ -169,8 +169,13 @@ function create() {
             if (this.head.x === food.x && this.head.y === food.y) {
                 this.addBody();
                 food.consume();
+
                 score += 10;
                 scoreText.setText('SCORE: ' + score);
+
+                if (this.speed > 20 && food.total % 5 === 0) {
+                    this.speed -= 5;
+                }
                 return true;
             }
             else {
