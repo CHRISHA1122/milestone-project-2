@@ -64,6 +64,13 @@ function create() {
         }
     })
 
+    var gameOver = this.add.text(600, 300, 'GAME OVER');
+    gameOver.setOrigin(0.5);
+    gameOver.setColor('black');
+    gameOver.setFontFamily('Arcadepix');
+    gameOver.setScale(6);
+    gameOver.visible = false;
+
 // Adds food to game
     var Food = new Phaser.Class({
 
@@ -155,7 +162,7 @@ function create() {
             
             var colideBody = Phaser.Actions.GetFirst(this.body.getChildren(), { x: this.head.x, y: this.head.y }, 1);
             if (colideBody) {
-            console.log('dead');
+                gameOver.visible = true;
             this.alive = false;
             return false;
         }
