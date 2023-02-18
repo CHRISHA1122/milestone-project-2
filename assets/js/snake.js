@@ -1,10 +1,10 @@
 // Phaser game configuration
 var config = {
     type: Phaser.AUTO,
-    height: this.window.innerHeight * this.window.devicePixelRatio,
-    width: this.window.innerWidth * this.window.devicePixelRatio,
+    height: 600,
+    width: 1290,
     scale: {
-        mode: Phaser.Scale.FILL,
+        mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
     backgroundColor: '#d3d3d3',
@@ -48,7 +48,7 @@ function create() {
     scoreText.setScale(1.8);
     
 // Adds pause feature to game
-    var text = this.add.text(1275, 0, 'PAUSE');
+    var text = this.add.text(1200, 0, 'PAUSE');
     text.setColor('black');
     text.setFontFamily('Arcadepix');
     text.setScale(1.8);
@@ -155,9 +155,9 @@ function create() {
                 break;
                 case DOWN: this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y + 1, 0, 40);
                 break;
-                case LEFT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x - 1, 0, 85);
+                case LEFT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x - 1, 0, 82);
                 break;
-                case RIGHT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x + 1, 0, 85);
+                case RIGHT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x + 1, 0, 82);
                 break;
             }
 
