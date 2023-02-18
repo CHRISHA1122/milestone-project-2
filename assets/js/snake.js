@@ -1,8 +1,12 @@
 // Phaser game configuration
 var config = {
     type: Phaser.AUTO,
-    height: 600,
-    width: 1280,
+    height: this.window.innerHeight * this.window.devicePixelRatio,
+    width: this.window.innerWidth * this.window.devicePixelRatio,
+    scale: {
+        mode: Phaser.Scale.FILL,
+        autoCenter: Phaser.Scale.CENTER_BOTH
+    },
     backgroundColor: '#d3d3d3',
     physics: {
         default: 'arcade',
@@ -44,7 +48,7 @@ function create() {
     scoreText.setScale(1.8);
     
 // Adds pause feature to game
-    var text = this.add.text(1200, 0, 'PAUSE');
+    var text = this.add.text(1275, 0, 'PAUSE');
     text.setColor('black');
     text.setFontFamily('Arcadepix');
     text.setScale(1.8);
@@ -90,8 +94,8 @@ function create() {
 
         consume: function() {
             this.total ++;
-            var x = Phaser.Math.Between(0, 78);
-            var y = Phaser.Math.Between(0, 36);
+            var x = Phaser.Math.Between(0, 84);
+            var y = Phaser.Math.Between(0, 39);
             this.setPosition(x * 16, y * 16);
         },
     });
@@ -147,13 +151,13 @@ function create() {
 
         move: function(time) {
             switch(this.heading) {
-                case UP: this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y - 1, 0, 38);
+                case UP: this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y - 1, 0, 40);
                 break;
-                case DOWN: this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y + 1, 0, 38);
+                case DOWN: this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y + 1, 0, 40);
                 break;
-                case LEFT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x - 1, 0, 80);
+                case LEFT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x - 1, 0, 85);
                 break;
-                case RIGHT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x + 1, 0, 80);
+                case RIGHT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x + 1, 0, 85);
                 break;
             }
 
