@@ -192,8 +192,8 @@ function create() {
                 score += 10;
                 scoreText.setText('SCORE: ' + score);
 
-                if (this.speed > 10 && food.total % 5 === 0) {
-                    this.speed -= 5;
+                if (this.speed > 20 && food.total % 5 === 0) {
+                    this.speed -= 3;
                 }
                 return true;
             }
