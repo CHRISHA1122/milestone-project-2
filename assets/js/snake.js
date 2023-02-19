@@ -68,11 +68,12 @@ function create() {
         }
     })
 
-    var gameOver = this.add.text(600, 300, 'GAME OVER');
-    gameOver.setOrigin(0.5);
+    var gameOver = this.add.text(645, 250, 'GAME OVER');
+    gameOver.setOrigin(0.5, 0.5);
     gameOver.setColor('black');
     gameOver.setFontFamily('Arcadepix');
-    gameOver.setScale(6);
+    gameOver.setScale(8);
+    gameOver.setDepth(1);
     gameOver.visible = false;
 
 // Adds food to game
@@ -94,8 +95,8 @@ function create() {
 
         consume: function() {
             this.total ++;
-            var x = Phaser.Math.Between(0, 84);
-            var y = Phaser.Math.Between(0, 39);
+            var x = Phaser.Math.Between(0, 80);
+            var y = Phaser.Math.Between(0, 36);
             this.setPosition(x * 16, y * 16);
         },
     });
@@ -151,9 +152,9 @@ function create() {
 
         move: function(time) {
             switch(this.heading) {
-                case UP: this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y - 1, 0, 40);
+                case UP: this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y - 1, 0, 38);
                 break;
-                case DOWN: this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y + 1, 0, 40);
+                case DOWN: this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y + 1, 0, 38);
                 break;
                 case LEFT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x - 1, 0, 82);
                 break;
