@@ -95,7 +95,7 @@ function create() {
 
         consume: function() {
             this.total ++;
-            var x = Phaser.Math.Between(0, 80);
+            var x = Phaser.Math.Between(0, 78);
             var y = Phaser.Math.Between(0, 36);
             this.setPosition(x * 16, y * 16);
         },
@@ -156,9 +156,9 @@ function create() {
                 break;
                 case DOWN: this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y + 1, 0, 38);
                 break;
-                case LEFT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x - 1, 0, 82);
+                case LEFT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x - 1, 0, 81);
                 break;
-                case RIGHT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x + 1, 0, 82);
+                case RIGHT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x + 1, 0, 81);
                 break;
             }
 
@@ -168,6 +168,13 @@ function create() {
             var colideBody = Phaser.Actions.GetFirst(this.body.getChildren(), { x: this.head.x, y: this.head.y }, 1);
             if (colideBody) {
                 gameOver.visible = true;
+                if (confirm('RESTART GAME') == true) {
+                    window.location.reload();
+                } 
+                // Need to add homepage URL here
+                else {
+                    window.location.assign('');
+                }
             this.alive = false;
             return false;
         }
@@ -185,7 +192,7 @@ function create() {
                 score += 10;
                 scoreText.setText('SCORE: ' + score);
 
-                if (this.speed > 20 && food.total % 5 === 0) {
+                if (this.speed > 10 && food.total % 5 === 0) {
                     this.speed -= 5;
                 }
                 return true;
