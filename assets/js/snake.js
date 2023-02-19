@@ -43,13 +43,13 @@ function create() {
 // Adds score to game
     var scoreText;
     scoreText = this.add.text(10, 0, 'SCORE: 0');
-    scoreText.setColor('black');
+    scoreText.setColor('#000000');
     scoreText.setFontFamily('Arcadepix');
     scoreText.setScale(1.8);
     
 // Adds pause feature to game
     var text = this.add.text(1200, 0, 'PAUSE');
-    text.setColor('black');
+    text.setColor('#000000');
     text.setFontFamily('Arcadepix');
     text.setScale(1.8);
 
@@ -70,7 +70,7 @@ function create() {
 
     var gameOver = this.add.text(645, 250, 'GAME OVER');
     gameOver.setOrigin(0.5, 0.5);
-    gameOver.setColor('black');
+    gameOver.setColor('#000000');
     gameOver.setFontFamily('Arcadepix');
     gameOver.setScale(8);
     gameOver.setDepth(1);
