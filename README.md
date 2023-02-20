@@ -143,6 +143,8 @@ CSS Validator using [W3C Validation](https://jigsaw.w3.org/css-validator/) confi
 FIX - Changed to class btn.
 * 404 error showing on gmaepage when site went live.
 FIX - Adjusted file path.
+* Game pause when any part of screen is clicked.
+FIX - Changed pause text to set.Interactive.
 
 ### Future Updates
 

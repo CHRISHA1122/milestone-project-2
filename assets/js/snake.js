@@ -21,6 +21,7 @@ var config = {
 
 // Global variables
 var score = 0;
+var pause = false;
 var player;
 var food;
 var direction;
@@ -48,25 +49,22 @@ function create() {
     scoreText.setScale(1.8);
     
 // Adds pause feature to game
-    var text = this.add.text(1200, 0, 'PAUSE');
-    text.setColor('#000000');
-    text.setFontFamily('Arcadepix');
-    text.setScale(1.8);
+    var pauseText = this.add.text(1200, 0, 'PAUSE');
+    pauseText.setColor('#000000');
+    pauseText.setFontFamily('Arcadepix');
+    pauseText.setScale(1.8);
+    pauseText.setInteractive();
 
-    var pause = false;
-
-    this.input.on('pointerdown', () => {
-        if(!pause) {
-            text.setText('PLAY');
+        pauseText.on('pointerdown', function(pointer) {
+            pauseText.setText('PLAY');
             setTimeout(_ => game.loop.sleep(), 50);
             pause = true;
-        }
-        else {
-            text.setText('PAUSE');
+        })
+        pauseText.on('pointerover', function(pointer) {
+            pauseText.setText('PAUSE');
             game.loop.wake();
             pause = false;
-        }
-    })
+        })
 
     var gameOver = this.add.text(645, 250, 'GAME OVER');
     gameOver.setOrigin(0.5, 0.5);
