@@ -57,7 +57,25 @@ The Snake game website is designed to strictly adhere to accessibility guideline
 
 ### Homepage
 
+* The main background image is a screenshot of the game.
+* The font arcadepix was used to give it a game look.
+* A button was used to link to the game page.
+
+![Home Image](assets/readme.images/home-page.png)
+
 ### Gamepage
+
+* Two images were chosen for the snake and food, credit given in the credits section.
+* Directions controls added for player movement of snake.
+* Add body function everytime snake consumes food a body piece is added.
+* Add food function everytime food is consumed new food is placed on game canvas.
+* A score function that gives 10 points everytime food is consumed.
+* A pause feature so player can pause game when needed.
+* Move function added using Math.Wrap so the snake goes off one side of the screen and reappears on the other side.
+* A speed up function everytime snake consumes 5 food snake speeds up for increased difficulty.
+* A gameover/restart function when snake collides with its self game can be restarted.
+
+![Game Image](assets/readme.images/game-page.png)
 
 ## Technologies
 
@@ -70,11 +88,13 @@ This project was built using [HTML5](https://en.wikipedia.org/wiki/HTML5),[CSS3]
 Here is a list of the following technologies used in this project:
 
 - [HTML5](https://en.wikipedia.org/wiki/HTML5)
-HTML 5 was used to create the structure of the website
+HTML 5 was used to create the structure of the website.
 - [CSS3](https://en.wikipedia.org/wiki/CSS)
 CSS 3 was used to style the website.
 - [JS](https://www.javascript.com/)
-JS was used to give interactivity
+JS was used to give interactivity.
+- [Phaser3](https://phaser.io/)
+Phaser was used for its built in game mechanics.
 - [GitHub](https://github.com/)
 GitHub was used to store the projects code.
 - [Gitpod](https://gitpod.io/)
@@ -102,3 +122,35 @@ The website was tested on three different browsers with no problems:
 ### Future Updates
 
 * Would like to add a Highscore page to showcase scores from different players.
+* Would like to add more levels with increased difficulty.
+
+## Installation
+
+To clone this project into Github you will need:
+
+1. A Github account.
+2. Install the Gitpod extension.
+3. Log into Gitpod with your Github account.
+4. On the GitHub website find and click on the [Github repository](https://github.com/CHRISHA1122/milestone-project-2) of intrest.
+5. Locate the green button named Gitpod in the top right corner of the repository and click on it,
+6. This will trigger a new Gitpod workspace to be created from the code in Github where you can work locally.
+
+## Deployment
+
+This project was developed using Gitpod, commited to Git and pushed to Github using it's built in console function.
+
+* git status - Gives status of repository.
+* git add - Adds files to staging area.
+* git commit -m "First commit" - Commits files to repository.
+* git push - Sends commited files to remote repository.
+
+To deploy this page to Github pages from its [Github repository](https://github.com/CHRISHA1122/milestone-project-2),
+the following steps were taken:
+
+1. Log into Github.
+2. From the list of repositorieson the screen select [CHRISHA1122/milestone-project-2](CHRISHA1122/milestone-project-2)
+3. On the menu item go to Settings.
+4. Scroll down and select Pages.
+5. Under "Source" click the drop-down menu labelled "None" and select "Main".
+6. Upon selection, the page will automatically refresh meaning that the website is now deployed.
+7. Scroll back down to the "Pages" section to retrieve the deployed link.

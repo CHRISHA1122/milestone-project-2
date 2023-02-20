@@ -170,15 +170,13 @@ function create() {
                 gameOver.visible = true;
                 if (confirm('RESTART GAME') == true) {
                     window.location.reload();
-                } 
-                // Need to add homepage URL here
+                }
                 else {
-                    window.location.assign('');
+                    window.location.assign('https://chrisha1122.github.io/milestone-project-2/');
                 }
             this.alive = false;
             return false;
         }
-            
             this.moveTime = time + this.speed;
             return true;
             
