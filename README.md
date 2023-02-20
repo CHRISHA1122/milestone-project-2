@@ -111,7 +111,18 @@ The website was tested on three different browsers with no problems:
 * Google Chrome
 * Mozila Firefox
 
+![Lighthouse testing](assets/readme.images/)
+
 ### Mobile
+
+Developer tools on Firefox and Google Chrome were used throughout the project to check site responsiveness.
+Checked the website on my own mobile and other family members devices no problems reported.
+
+* Iphone
+* Samsung Galaxy
+* Dev Tools Mobile Responsiveness
+
+![Lighthouse testing](assets/readme.images/)
 
 ### HTML Validator
 
@@ -121,7 +132,17 @@ HTML Validator using [W3C Validation](https://validator.w3.org/) confirms no err
 
 ### CSS Validator
 
+
+CSS Validator using [W3C Validation](https://jigsaw.w3.org/css-validator/) confirms no errors found.
+
+![CSS Validator](assets/readme.images/game-css-validator.png)
+
 ### Bugs
+
+* Game link button on home page showing error in html validator
+FIX - Changed to class btn.
+* 404 error showing on gmaepage when site went live.
+FIX - Adjusted file path.
 
 ### Future Updates
 
@@ -158,3 +179,21 @@ the following steps were taken:
 5. Under "Source" click the drop-down menu labelled "None" and select "Main".
 6. Upon selection, the page will automatically refresh meaning that the website is now deployed.
 7. Scroll back down to the "Pages" section to retrieve the deployed link.
+
+
+## Credits
+
+### Code
+
+* [Code Institute](https://codeinstitute.net) what i've learned from the learning material.
+* [Phaser3 Examples](https://github.com/photonstorm/phaser3-examples)
+* [W3Schools](https://www.w3schools.com/) any trouble shooting.
+
+### Images
+
+* Images used for body of snake and food taken from [Phaser3 Examples](https://github.com/photonstorm/phaser3-examples).
+
+## Acknowledgements
+
+* I would like to thank the [Code Institute](https://codeinstitute.net) for the learning material and all the other support on offer.
+* I would like to thank my mentor for all the help and guidence through the project. 
