@@ -115,6 +115,10 @@ The website was tested on three different browsers with no problems:
 
 ### HTML Validator
 
+HTML Validator using [W3C Validation](https://validator.w3.org/) confirms no errors or warnings.
+
+![HTML Validator](assets/readme.images/game-html-validator.png)
+
 ### CSS Validator
 
 ### Bugs
