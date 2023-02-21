@@ -58,12 +58,12 @@ function create() {
     pauseText.setScale(1.8);
     pauseText.setInteractive();
 
-        pauseText.on('pointerdown', function(pointer) {
+        pauseText.on('pointerover', function(event) {
             pauseText.setText('PLAY');
             setTimeout(_ => game.loop.sleep(), 50);
             pause = true;
         })
-        pauseText.on('pointerover', function(pointer) {
+        pauseText.on('pointerdown', function(event) {
             pauseText.setText('PAUSE');
             game.loop.wake();
             pause = false;
