@@ -30,15 +30,18 @@ var DOWN = 1;
 var LEFT = 2;
 var RIGHT = 3;
 
+// Calls the game configuration
 var game = new Phaser.Game(config);
 
+// Preload function
 function preload() {
 
-// Adds images to game
+// Adds images to game, taken from Phaser3 examples
     this.load.image('snake', 'assets/images/body.png');
     this.load.image('food', 'assets/images/food.png');
 }
 
+// Create function
 function create() {
 
 // Adds score to game
@@ -66,6 +69,7 @@ function create() {
             pause = false;
         })
 
+// Adds gameover to game
     var gameOver = this.add.text(645, 250, 'GAME OVER');
     gameOver.setOrigin(0.5, 0.5);
     gameOver.setColor('#000000');
@@ -91,6 +95,7 @@ function create() {
             scene.children.add(this);
         },
 
+// Places new food on game area
         consume: function() {
             this.total ++;
             var x = Phaser.Math.Between(0, 78);
@@ -127,6 +132,7 @@ function create() {
             }
         },
 
+// Updates head position
         faceUp: function() {
             if (this.direction === LEFT || this.direction === RIGHT) {
                 this.heading = UP;
@@ -148,6 +154,7 @@ function create() {
             }
         },
 
+// Enables snake to go off screen and come back on the otherside
         move: function(time) {
             switch(this.heading) {
                 case UP: this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y - 1, 0, 38);
@@ -163,7 +170,10 @@ function create() {
             this.direction = this.heading;
             Phaser.Actions.ShiftPosition(this.body.getChildren(), this.headPosition.x * 16, this.headPosition.y * 16, 1, this.newBody);
             
+// Adds colide function 
             var colideBody = Phaser.Actions.GetFirst(this.body.getChildren(), { x: this.head.x, y: this.head.y }, 1);
+ 
+// Adds restart function
             if (colideBody) {
                 gameOver.visible = true;
                 if (confirm('RESTART GAME') == true) {
@@ -175,19 +185,24 @@ function create() {
             this.alive = false;
             return false;
         }
+
+//  Updates the timer ready for the next move
             this.moveTime = time + this.speed;
             return true;
             
         },
 
+// Consume food function
         consumeFood: function(food) {
             if (this.head.x === food.x && this.head.y === food.y) {
                 this.addBody();
                 food.consume();
 
+// Adds 10 points to score function when food is consumed
                 score += 10;
                 scoreText.setText('SCORE: ' + score);
 
+// Adds speed up function for increased difficulty
                 if (this.speed > 20 && food.total % 5 === 0) {
                     this.speed -= 3;
                 }
@@ -198,6 +213,7 @@ function create() {
             }
         },
 
+// Adds body piece to snake everytime food is consumed
         addBody: function() {
             var grow = this.body.create(this.newBody.x, this.newBody.y, 'snake');
             grow.setOrigin(0);
@@ -205,16 +221,20 @@ function create() {
         },
     });
 
+// Loads food onto game canvas
     food = new Food(this, 16, 28);
 
+// Loads player onto game canvas
     player = new Player(this, 8, 8);
 
 //  Create keyboard controls
         direction = this.input.keyboard.createCursorKeys();
 }
 
+// Update function
 function update(time, delta) {
-    
+ 
+// Updates the movement of snake
     if (!player.alive) {
         return
     }
@@ -231,6 +251,7 @@ function update(time, delta) {
         player.faceRight();
     }
 
+//Updates if food is consumed
     if (player.update(time)) {
         player.consumeFood(food);
     };

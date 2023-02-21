@@ -1,6 +1,23 @@
 # Snake Game Website
 
+![Image showing Website on different devices](assets/readme.images/game-responsive.png)
+
+[View the live site here](https://chrisha1122.github.io/milestone-project-2/)
+
 This website was designed to be a fun game for all ages. The game is inspired by the snake game from the old nokia phones.
+
+## Table of Contents
+
+- [**Project Goals**](#project-goals)
+- [**User Experience UX**](#user-experience-ux)
+- [**Wireframes**](#wireframes)
+- [**Features**](#features)
+- [**Technologies**](#technologies)
+- [**Testing**](#testing)
+- [**Installation**](#installation)
+- [**Deployment**](#deployment)
+- [**Credits**](#credits)
+- [**Acknowledgements**](#acknowledgements)
 
 ## Project Goals
 
@@ -25,7 +42,8 @@ The target audience is anyone who enjoys playing games.
 
 ### Design Choices
 
-* [Phaser3](https://phaser.io/) was used throughout the project for its built in game building capabilities.
+#### Fonts
+
 * The font Arcadepix was taken from [Dafont](https://www.dafont.com/) using font-face.
 * The font Arcadepix was chosen because of the argade/game effect it has.
 * The default sans-serif is used for backup font.
@@ -50,6 +68,16 @@ The target audience is anyone who enjoys playing games.
 * All images used credited in the credits section.
 
 ## Wireframes
+
+Wireframes for the project were developed after the idea was scribbled on a piece of paper, the program used being Figma.
+
+### Homepage Wireframe
+
+![Homepage Wireframe](assets/readme.images/game-home-wireframe.png)
+
+### Gamepage Wireframe
+
+![Gamepage Wireframe](assets/readme.images/game-wireframe.png)
 
 ## Features
 
@@ -99,6 +127,12 @@ Phaser was used for its built in game mechanics.
 GitHub was used to store the projects code.
 - [Gitpod](https://gitpod.io/)
 Gitpod terminal was used to commit my code using Git and push it to Github.
+- [Figma](https://www.figma.com/templates/wireframe-kits/)
+Figma was used to design the wireframes for the project.
+- [Am I Responsive](https://ui.dev/amiresponsive)
+Am I responsive was used to ensure the website is responsive on all devices.
+- [W3C Validation](https://validator.w3.org/)
+W3C Validation was uesd for checking HTML and CSS for mistakes.
 
 ## Testing
 
@@ -188,8 +222,9 @@ the following steps were taken:
 ### Code
 
 * [Code Institute](https://codeinstitute.net) what i've learned from the learning material.
-* [Phaser3 Examples](https://github.com/photonstorm/phaser3-examples)
+* [Phaser3 Examples](https://github.com/photonstorm/phaser3-examples) for its game functionality.
 * [W3Schools](https://www.w3schools.com/) any trouble shooting.
+* [Webtips.dev](https://www.webtips.dev/) any trouble shooting.
 
 ### Images
 
