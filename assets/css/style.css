@@ -52,6 +52,14 @@ body {
     color: #d3d3d3;
 }
 
+#desktop {
+    font-family: Arcadepix;
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 2rem;
+    color: #000000;
+}
+
 
 
 /*--------------------------------------------Media Query*/

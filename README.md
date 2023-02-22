@@ -145,19 +145,6 @@ The website was tested on three different browsers with no problems:
 * Google Chrome
 * Mozila Firefox
 
-![Lighthouse testing](assets/readme.images/)
-
-### Mobile
-
-Developer tools on Firefox and Google Chrome were used throughout the project to check site responsiveness.
-Checked the website on my own mobile and other family members devices no problems reported.
-
-* Iphone
-* Samsung Galaxy
-* Dev Tools Mobile Responsiveness
-
-![Lighthouse testing](assets/readme.images/)
-
 ### HTML Validator
 
 HTML Validator using [W3C Validation](https://validator.w3.org/) confirms no errors or warnings.
@@ -166,10 +153,15 @@ HTML Validator using [W3C Validation](https://validator.w3.org/) confirms no err
 
 ### CSS Validator
 
-
 CSS Validator using [W3C Validation](https://jigsaw.w3.org/css-validator/) confirms no errors found.
 
 ![CSS Validator](assets/readme.images/game-css-validator.png)
+
+### JS Validator
+
+JS Validator using [ES6 Syntax Check](https://www.piliapp.com/syntax-check/es6/) confirms no errors found.
+
+![JS Validator](assets/readme.images/game-js-validator.png)
 
 ### Bugs
 
@@ -182,6 +174,7 @@ FIX - Changed pause text to set.Interactive.
 
 ### Future Updates
 
+* Add touch controls for mobile use
 * Would like to add a Highscore page to showcase scores from different players.
 * Would like to add more levels with increased difficulty.
 

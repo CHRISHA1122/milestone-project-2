@@ -168,7 +168,8 @@ function create() {
             }
 
             this.direction = this.heading;
-            Phaser.Actions.ShiftPosition(this.body.getChildren(), this.headPosition.x * 16, this.headPosition.y * 16, 1, this.newBody);
+            Phaser.Actions.ShiftPosition(this.body.getChildren(),
+            this.headPosition.x * 16, this.headPosition.y * 16, 1, this.newBody);
             
 // Adds colide function 
             var colideBody = Phaser.Actions.GetFirst(this.body.getChildren(), { x: this.head.x, y: this.head.y }, 1);
@@ -176,11 +177,11 @@ function create() {
 // Adds restart function
             if (colideBody) {
                 gameOver.visible = true;
-                if (confirm('RESTART GAME') == true) {
-                    window.location.reload();
+                if (confirm('RESTART GAME') === true) {
+                    location.reload();
                 }
                 else {
-                    window.location.assign('https://chrisha1122.github.io/milestone-project-2/');
+                    location.assign('https://8000-chrisha1122-milestonepr-7dmgcp3hmve.ws-eu87.gitpod.io/');
                 }
             this.alive = false;
             return false;
@@ -232,7 +233,7 @@ function create() {
 }
 
 // Update function
-function update(time, delta) {
+function update(time) {
  
 // Updates the movement of snake
     if (!player.alive) {
