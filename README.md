@@ -1,6 +1,6 @@
 # Snake Game Website
 
-![Image showing Website on different devices](assets/readme.images/game-responsive.png)
+![Image showing Website on different devices](assets/readme.images/game-am-i-responsive.png)
 
 [View the live site here](https://chrisha1122.github.io/milestone-project-2/)
 
@@ -27,9 +27,11 @@ The target audience is anyone who enjoys playing games.
 
 ### User goals
 
+* A game for a player of any age. 
 * Enjoyable experiance on the site.
 * Have fun playing the game.
 * Keep playing to try get better score.
+* a easy to play game.
 
 ### Developer goals
 
@@ -37,6 +39,7 @@ The target audience is anyone who enjoys playing games.
 * Make game easy to play.
 * An easy to navigate site. 
 * A project that would be good enough to go in a portfolio.
+* Have fun learning to build a game.
 
 ## User Experience - UX
 
@@ -61,6 +64,7 @@ The target audience is anyone who enjoys playing games.
 
 * [Phaser3](https://phaser.io/) was used throughout the project for its built in game building capabilities.
 * Basic home page for easy navigation.
+* Plain colours for the old game look.
 
 #### Images
 
@@ -176,11 +180,13 @@ JS Validator using [ES6 Syntax Check](https://www.piliapp.com/syntax-check/es6/)
 
 ### Bugs
 
-* Game link button on home page showing error in html validator
+* Game link button on home page showing error in html validator:
 FIX - Changed to class btn.
-* 404 error showing on gmaepage when site went live.
+
+* 404 error showing on gmaepage when site went live:
 FIX - Adjusted file path.
-* Game pause when any part of screen is clicked.
+
+* Game pause when any part of screen is clicked:
 FIX - Changed pause text to set.Interactive.
 
 ### Future Updates
