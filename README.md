@@ -133,6 +133,8 @@ Figma was used to design the wireframes for the project.
 Am I responsive was used to ensure the website is responsive on all devices.
 - [W3C Validation](https://validator.w3.org/)
 W3C Validation was uesd for checking HTML and CSS for mistakes.
+- [ES6 Validator](https://www.piliapp.com/syntax-check/es6/)
+W3C Validation was uesd for checking HTML and CSS for mistakes.
 
 ## Testing
 
@@ -144,6 +146,15 @@ The website was tested on three different browsers with no problems:
 * Microsoft Edge
 * Google Chrome
 * Mozila Firefox
+
+### Mobile
+
+Developer tools on Firefox and Google Chrome were used throughout the project to check site responsiveness.
+Checked the website on my own mobile and other family members, just need to implement touch screen feature for game on mobile in future update.
+
+* Iphone
+* Samsung Galaxy
+* Dev Tools Mobile Responsiveness
 
 ### HTML Validator
 
@@ -175,8 +186,8 @@ FIX - Changed pause text to set.Interactive.
 ### Future Updates
 
 * Add touch controls for mobile use
-* Would like to add a Highscore page to showcase scores from different players.
-* Would like to add more levels with increased difficulty.
+* Add a Highscore page to showcase scores from different players.
+* Add more levels with increased difficulty.
 
 ## Installation
 
