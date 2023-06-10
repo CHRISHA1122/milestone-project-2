@@ -85,13 +85,14 @@ Wireframes for the project were developed after the idea was scribbled on a piec
 
 ## Features
 
-The Snake game website is designed to strictly adhere to accessibility guidelines across all pages, with easy navigation between homepage and game. Device responsiveness approach taken throughout project. 
+The Snake game website is designed to strictly adhere to accessibility guidelines across all pages, with easy navigation between homepage and game. Device responsiveness approach taken throughout project. The game can be played onboth desktop and mobile due to arrow and touchscreen controls.
 
 ### Homepage
 
 * The main background image is a screenshot of the game.
 * The font arcadepix was used to give it a game look.
 * A button was used to link to the game page.
+* Add username option for players, username saved and displayed onthe gameover pop up.
 
 ![Home Image](assets/readme.images/home-page.png)
 
@@ -191,7 +192,6 @@ FIX - Changed pause text to set.Interactive.
 
 ### Future Updates
 
-* Add touch controls for mobile use
 * Add a Highscore page to showcase scores from different players.
 * Add more levels with increased difficulty.
 

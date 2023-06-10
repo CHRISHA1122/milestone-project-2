@@ -68,16 +68,6 @@ body {
     text-transform: uppercase;
 }
 
-#desktop {
-    font-family: Arcadepix;
-    text-align: center;
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    color: #000000;
-}
-
-
-
 /*--------------------------------------------Media Query*/
 
 @media (min-width: 280px) and (max-width: 400px) {

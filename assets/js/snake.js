@@ -21,8 +21,9 @@ var config = {
 
 // Global variables
 var score = 0;
-var pause = false;
+var gamePaused = false;
 var player;
+var gameOver
 var food;
 var direction;
 var UP = 0;
@@ -38,6 +39,20 @@ function saveUsername() {
     var username = usernameInput.value;
     localStorage.setItem('username', username);
     alert('Username saved!');
+}
+
+// Toggle pause function
+var pauseText;
+function togglePause() {
+    if (gamePaused) {
+        pauseText.setText('PAUSE');
+        gamePaused = false;
+        game.loop.resume();
+    } else {
+        pauseText.setText('PLAY');
+        gamePaused = true;
+        game.loop.pause();
+    }
 }
 
 // Add event listener to the button for saving the username
@@ -63,25 +78,15 @@ function create() {
     scoreText.setScale(1.8);
     
 // Adds pause feature to game
-    var pauseText = this.add.text(1200, 0, 'PAUSE');
+    pauseText = this.add.text(1200, 0, 'PAUSE');
+    pauseText.setInteractive();
     pauseText.setColor('#000000');
     pauseText.setFontFamily('Arcadepix');
     pauseText.setScale(1.8);
-    pauseText.setInteractive();
-
-        pauseText.on('pointerover', function(event) {
-            pauseText.setText('PLAY');
-            setTimeout(_ => game.loop.sleep(), 50);
-            pause = true;
-        })
-        pauseText.on('pointerdown', function(event) {
-            pauseText.setText('PAUSE');
-            game.loop.wake();
-            pause = false;
-        })
+    pauseText.on('pointerdown', togglePause);
 
 // Adds gameover to game
-    var gameOver = this.add.text(645, 250, 'GAME OVER');
+    gameOver = this.add.text(645, 250, 'GAME OVER');
     gameOver.setOrigin(0.5, 0.5);
     gameOver.setColor('#000000');
     gameOver.setFontFamily('Arcadepix');
@@ -252,6 +257,11 @@ function update(time) {
 // Updates the movement of snake
     if (!player.alive) {
         return
+    }
+
+    // Check if the game is paused
+    if (gamePaused) {
+        return;
     }
 
 // Keyboard controls
