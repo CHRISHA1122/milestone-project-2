@@ -33,6 +33,17 @@ var RIGHT = 3;
 // Calls the game configuration
 var game = new Phaser.Game(config);
 
+function saveUsername() {
+    var usernameInput = document.getElementById('username');
+    var username = usernameInput.value;
+    localStorage.setItem('username', username);
+    alert('Username saved!');
+}
+
+// Add event listener to the button for saving the username
+var saveButton = document.getElementById('saveButton');
+saveButton.addEventListener('click', saveUsername);
+
 // Preload function
 function preload() {
 
@@ -176,15 +187,15 @@ function create() {
  
 // Adds restart function
             if (colideBody) {
-                gameOver.visible = true;
-                if (confirm('RESTART GAME') === true) {
-                    location.reload();
-                }
-                else {
-                    location.assign('https://8000-chrisha1122-milestonepr-7dmgcp3hmve.ws-eu87.gitpod.io/');
-                }
-            this.alive = false;
-            return false;
+                this.alive = false;
+        gameOver.visible = true;
+        var username = localStorage.getItem('username');
+        if (confirm('Game over, ' + username + '! Would you like to restart the game?')) {
+            location.reload();
+        } else {
+            window.location.href = 'index.html';
+        }
+        return false;
         }
 
 //  Updates the timer ready for the next move
