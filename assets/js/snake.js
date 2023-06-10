@@ -240,7 +240,10 @@ function create() {
     player = new Player(this, 8, 8);
 
 //  Create keyboard controls
-        direction = this.input.keyboard.createCursorKeys();
+    direction = this.input.keyboard.createCursorKeys();
+
+//  Create touchscreen controls
+    this.input.addPointer(2);
 }
 
 // Update function
@@ -250,17 +253,41 @@ function update(time) {
     if (!player.alive) {
         return
     }
-    if (direction.up.isDown) {
+
+// Keyboard controls
+    if (direction.up.isDown || this.input.keyboard.checkDown(direction.up, 250)) {
         player.faceUp();
     }
-    else if (direction.down.isDown) {
+    else if (direction.down.isDown || this.input.keyboard.checkDown(direction.down, 250)) {
         player.faceDown();
     }
-    else if (direction.left.isDown) {
+    else if (direction.left.isDown || this.input.keyboard.checkDown(direction.left, 250)) {
         player.faceLeft();
     }
-    else if (direction.right.isDown) {
+    else if (direction.right.isDown || this.input.keyboard.checkDown(direction.right, 250)) {
         player.faceRight();
+    }
+
+// Touchscreen controls
+    if (this.input.pointer1.isDown) {
+        var touchX = this.input.pointer1.x;
+        var touchY = this.input.pointer1.y;
+        var centerX = this.cameras.main.width / 2;
+        var centerY = this.cameras.main.height / 2;
+
+        // Calculate the angle between the touch position and the center of the screen
+        var angle = Phaser.Math.Angle.Between(centerX, centerY, touchX, touchY);
+
+        // Convert the angle to direction
+        if (angle > -Math.PI / 4 && angle <= Math.PI / 4) {
+            player.faceRight();
+        } else if (angle > Math.PI / 4 && angle <= 3 * Math.PI / 4) {
+            player.faceDown();
+        } else if (angle > -3 * Math.PI / 4 && angle <= -Math.PI / 4) {
+            player.faceUp();
+        } else {
+            player.faceLeft();
+        }
     }
 
 //Updates if food is consumed
