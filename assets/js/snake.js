@@ -5,13 +5,15 @@ var config = {
     width: 1290,
     scale: {
         mode: Phaser.Scale.FIT,
-        autoCenter: Phaser.Scale.CENTER_BOTH
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+        parent: 'game',
+        width: window.innerWidth,
+        height: window.innerHeight
     },
     backgroundColor: '#d3d3d3',
     physics: {
         default: 'arcade',
     },
-    parent: 'game',
     scene: {
         preload: preload,
         create: create,
@@ -75,14 +77,14 @@ function create() {
     scoreText = this.add.text(10, 0, 'SCORE: 0');
     scoreText.setColor('#000000');
     scoreText.setFontFamily('Arcadepix');
-    scoreText.setScale(1.8);
+    scoreText.setScale(2);
     
 // Adds pause feature to game
     pauseText = this.add.text(1200, 0, 'PAUSE');
     pauseText.setInteractive();
     pauseText.setColor('#000000');
     pauseText.setFontFamily('Arcadepix');
-    pauseText.setScale(1.8);
+    pauseText.setScale(2);
     pauseText.on('pointerdown', togglePause);
 
 // Adds gameover to game
@@ -105,7 +107,7 @@ function create() {
             this.setTexture('food');
             this.setPosition(x * 16, y * 16);
             this.setOrigin(0);
-            this.setScale(1.3);
+            this.setScale(1.5);
 
             this.total = 0;
             scene.children.add(this);
@@ -132,7 +134,7 @@ function create() {
 
             this.head = this.body.create(x * 16, y * 16, 'snake');
             this.head.setOrigin(0);
-            this.head.setScale(1.2);
+            this.head.setScale(1.5);
 
             this.alive = true;
             this.moveTime = 0;
@@ -173,13 +175,13 @@ function create() {
 // Enables snake to go off screen and come back on the otherside
         move: function(time) {
             switch(this.heading) {
-                case UP: this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y - 1, 0, 38);
+                case UP: this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y - 1, 0, 40);
                 break;
-                case DOWN: this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y + 1, 0, 38);
+                case DOWN: this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y + 1, 0, 40);
                 break;
-                case LEFT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x - 1, 0, 81);
+                case LEFT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x - 1, 0, 85);
                 break;
-                case RIGHT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x + 1, 0, 81);
+                case RIGHT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x + 1, 0, 85);
                 break;
             }
 
@@ -234,7 +236,7 @@ function create() {
         addBody: function() {
             var grow = this.body.create(this.newBody.x, this.newBody.y, 'snake');
             grow.setOrigin(0);
-            grow.setScale(1.2);
+            grow.setScale(1.5);
         },
     });
 
