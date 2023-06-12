@@ -6,14 +6,12 @@ var config = {
     scale: {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,
-        parent: 'game',
-        width: window.innerWidth,
-        height: window.innerHeight
     },
     backgroundColor: '#d3d3d3',
     physics: {
         default: 'arcade',
     },
+    parent: 'game',
     scene: {
         preload: preload,
         create: create,
@@ -36,9 +34,21 @@ var RIGHT = 3;
 // Calls the game configuration
 var game = new Phaser.Game(config);
 
+// Adds and saves username
 function saveUsername() {
     var usernameInput = document.getElementById('username');
     var username = usernameInput.value;
+
+    if (username.length === 0) {
+        alert('Please enter a username.');
+        return;
+    }
+
+    if (username.length > 10) {
+        alert('Username must be maximum 10 characters long.');
+        return;
+    }
+
     localStorage.setItem('username', username);
     alert('Username saved!');
 }
@@ -175,13 +185,13 @@ function create() {
 // Enables snake to go off screen and come back on the otherside
         move: function(time) {
             switch(this.heading) {
-                case UP: this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y - 1, 0, 40);
+                case UP: this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y - 1, 0, 38);
                 break;
-                case DOWN: this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y + 1, 0, 40);
+                case DOWN: this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y + 1, 0, 38);
                 break;
-                case LEFT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x - 1, 0, 85);
+                case LEFT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x - 1, 0, 81);
                 break;
-                case RIGHT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x + 1, 0, 85);
+                case RIGHT: this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x + 1, 0, 81);
                 break;
             }
 
