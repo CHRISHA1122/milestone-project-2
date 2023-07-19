@@ -31,7 +31,8 @@ The target audience is anyone who enjoys playing games.
 * Enjoyable experiance on the site.
 * Have fun playing the game.
 * Keep playing to try get better score.
-* a easy to play game.
+* Create a username and have it saved.
+* An easy to play game.
 
 ### Developer goals
 
@@ -92,7 +93,7 @@ The Snake game website is designed to strictly adhere to accessibility guideline
 * The main background image is a screenshot of the game.
 * The font arcadepix was used to give it a game look.
 * A button was used to link to the game page.
-* Add username option for players, username saved and displayed onthe gameover pop up.
+* Add username option for players, username saved and displayed on the gameover pop up.
 
 ![Home Image](assets/readme.images/home-page.png)
 
