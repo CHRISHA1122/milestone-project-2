@@ -34,25 +34,6 @@ var RIGHT = 3;
 // Calls the game configuration
 var game = new Phaser.Game(config);
 
-// Adds and saves username
-function saveUsername() {
-    var usernameInput = document.getElementById('username');
-    var username = usernameInput.value;
-
-    if (username.length === 0) {
-        alert('Please enter a username.');
-        return;
-    }
-
-    if (username.length > 10) {
-        alert('Username must be maximum 10 characters long.');
-        return;
-    }
-
-    localStorage.setItem('username', username);
-    alert('Username saved!');
-}
-
 // Toggle pause function
 var pauseText;
 function togglePause() {
@@ -66,10 +47,6 @@ function togglePause() {
         game.loop.pause();
     }
 }
-
-// Add event listener to the button for saving the username
-var saveButton = document.getElementById('saveButton');
-saveButton.addEventListener('click', saveUsername);
 
 // Preload function
 function preload() {
@@ -148,7 +125,7 @@ function create() {
 
             this.alive = true;
             this.moveTime = 0;
-            this.speed = 100;
+            this.speed = 125;
             this.heading = DOWN;
             this.direction = DOWN;
             this.newBody = new Phaser.Geom.Point(x, y);
